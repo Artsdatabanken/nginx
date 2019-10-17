@@ -4,4 +4,5 @@ RUN groupadd --gid 1007 dockerrunner && \
 RUN chmod +x /app/generate-dhparam.sh
 RUN cp /app/dhparam.pem.default /etc/nginx/dhparam/dhparam.pem
 RUN chown -R :dockerrunner /etc/nginx
+RUN ls -l /etc/nginx/dhparam/
 USER dockerrunner
