@@ -12,6 +12,7 @@ RUN chown :dockerrunner /usr/local/bin/forego
 RUN chmod g+rx /usr/local/bin/forego
 RUN chown :dockerrunner /var/cache/nginx
 RUN chown :dockerrunner /tmp
+RUN chmod g+s /tmp
 RUN chmod g+rw /var/cache/nginx
 
 # Replace 
