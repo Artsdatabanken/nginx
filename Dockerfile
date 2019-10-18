@@ -11,11 +11,11 @@ RUN chown -R -v :dockerrunner /app
 RUN chown :dockerrunner /usr/local/bin/forego
 RUN chmod g+rx /usr/local/bin/forego
 RUN chown :dockerrunner /var/cache/nginx
+RUN chown :dockerrunner /tmp
 RUN chmod g+rw /var/cache/nginx
-RUN chown :dockerrunner /var/log/nginx
-RUN chmod g+rw /var/log/nginx
 
 # Replace 
+RUN sed -i -e '/listen/!b' -e '/80;/!b' -e 's/80;/8080;/' /etc/nginx/conf.d/default.conf
 RUN sed -i -e '/listen/!b' -e '/80;/!b' -e 's/80;/8080;/' /app/nginx.tmpl
 RUN sed -i -e '/listen/!b' -e '/80 /!b' -e 's/80 /8080 /' /app/nginx.tmpl
 RUN sed -i -e '/listen/!b' -e '/443 ssl/!b' -e 's/443 ssl/4343 ssl/' /app/nginx.tmpl 
