@@ -8,4 +8,5 @@ RUN chown -R :dockerrunner /etc/nginx/dhparam
 RUN chmod g+s /etc/nginx
 RUN chmod g+s /etc/nginx/dhparam
 RUN chown -R :dockerrunner /app
+RUN ls -l /etc/nginx
 USER dockerrunner
