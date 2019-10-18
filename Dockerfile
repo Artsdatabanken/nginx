@@ -14,6 +14,8 @@ RUN chown :dockerrunner /var/cache/nginx
 RUN chown :dockerrunner /tmp
 RUN chmod g+s /tmp
 RUN chmod g+rw /var/cache/nginx
+RUN chown :dockerrunner /var/run
+RUN chmod g+rw /var/run
 
 # Replace 
 RUN sed -i -e '/listen/!b' -e '/80;/!b' -e 's/80;/8080;/' /etc/nginx/conf.d/default.conf
