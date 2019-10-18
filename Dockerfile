@@ -8,7 +8,8 @@ RUN chown -R -v :dockerrunner /etc/nginx/dhparam
 RUN chmod -R -v g+s /etc/nginx
 RUN chmod -R -v g+s /etc/nginx/dhparam
 RUN chown -R -v :dockerrunner /app
-RUN chmod g+rx :dockerrunner /usr/local/bin/forego
+RUN chown :dockerrunner /usr/local/bin/forego
+RUN chmod g+rx /usr/local/bin/forego
 
 # Replace 
 RUN sed -i -e '/listen/!b' -e '/80;/!b' -e 's/80;/8080;/' /app/nginx.tmpl
