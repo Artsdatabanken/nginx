@@ -9,5 +9,6 @@ RUN chmod -R -v g+s /etc/nginx
 RUN chmod -R -v g+s /etc/nginx/dhparam
 RUN chown -R -v :dockerrunner /app
 
+# Replace 
 RUN sed -i -e '/listen/!b' -e '/80;/!b' -e 's/80;/8080;/' /app/nginx.tmpl
-RUN sed -i -e '/listen/!b' -e '/443;/!b' -e 's/443;/4343;/' /app/nginx.tmpl 
+RUN sed -i -e '/listen/!b' -e '/443 ssl/!b' -e 's/443 ssl/4343 ssl/' /app/nginx.tmpl 
